@@ -1,0 +1,12 @@
+name: Vitality
+main: org.cyberpwn.vitality.Vitality
+version: 1.0
+commands: 
+  vtp:
+    aliases: [teleport, tp]
+  vtpf:
+    aliases: [teleportforce, tpf]
+  vtphere: 
+    aliases: [teleporthere, tphere, tph]
+  vtpfhere: 
+    aliases: [teleporthereforce, tpfhere, tpfh]
