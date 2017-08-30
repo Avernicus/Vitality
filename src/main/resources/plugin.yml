@@ -2,6 +2,8 @@ name: Vitality
 main: org.cyberpwn.vitality.Vitality
 version: 1.0
 commands: 
+  vitality:
+    aliases: [vit, vi]
   vtp:
     aliases: [teleport, tp]
   vtpall:
