@@ -1,7 +1,7 @@
 # Vitality
 Vitality is an alternative to essentials. Vitality is NOT a competitor of essentials. Not only has essentials been tested and developed for years, it is in almost everyone's go-to set of plugins to install first (including myself). Vitality is intended as an open path of development for features that may not be in essentials, including features that may need improvement in essentials. If you have any suggestions be sure to drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues).
 
-Vitality is planned to support minecraft 1.2.5 and above. Since it is designed to work as an essential plugin, it needs to support really really old versions. The design is to have certain features work with only certain ranges of versions, and not limit feature development based on what is possible in all supported versions. By doing this, it opens up a world of possibilities for newer versions without breaking the plugin on older versions.
+Vitality is planned to support minecraft 1.2.5 and above. Since it is designed to work as an essential plugin, it needs to support really really old versions. The design is to have certain features work with only certain ranges of versions, and not limit feature development based on what is possible in all supported versions. By doing this, **it opens up a world of possibilities for newer versions without breaking the plugin on older versions.**
 
 ## Commands
 All of the commands are listed below in sections (sorted by related features). Please note that the commands listed below are **already implemented.** If you have a suggestion for a command or feature, please drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues).
@@ -9,7 +9,7 @@ All of the commands are listed below in sections (sorted by related features). P
 * [Game Mode Switching](https://github.com/cyberpwnn/Vitality/blob/master/README.md#game-mode-switching)
 
 ### Teleportation
-Teleportation commands are used for getting any amount of players to a destination. The purpose for "f" in commands noted as force is because the normal teleport goal is NOT to teleport you exactly to the destination. For example, using /tp cyberpwn will teleport you NEAR cyberpwn in a SAFE location, but not inside (at the same location as) cyberpwn. Using /tpf will force the exact location, ignoring saftey checks.
+Teleportation commands are used for getting any amount of players to a destination. The purpose for "f" in commands noted as force is because **the normal teleport goal is NOT to teleport you exactly to the destination.** For example, using /tp cyberpwn will teleport you NEAR cyberpwn in a SAFE location, but not inside (at the same location as) cyberpwn. Using /tpf will force the exact location, ignoring saftey checks.
 
 | Command | Usage |
 |---|---|
