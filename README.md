@@ -1,5 +1,5 @@
 # Vitality
-Vitality is an alternative to essentials
+Vitality is an alternative to essentials. Vitality is NOT a competitor of essentials. Not only has essentials been tested and developed for years, it is in almost everyone's go-to set of plugins to install first (including myself). Vitality is intended as an open path of development for features that may not be in essentials, including features that may need improvement in essentials. If you have any suggestions be sure to drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues)
 
 ## Commands
 All of the commands are listed below in sections (sorted by related features)
