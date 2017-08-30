@@ -4,6 +4,9 @@ Vitality is an alternative to essentials. Vitality is NOT a competitor of essent
 
 Vitality is planned to support minecraft 1.2.5 and above. Since it is designed to work as an essential plugin, it needs to support really really old versions. The design is to have certain features work with only certain ranges of versions, and not limit feature development based on what is possible in all supported versions. By doing this, **it opens up a world of possibilities for newer versions without breaking the plugin on older versions.**
 
+### Build Status
+[![CircleCI](https://circleci.com/gh/cyberpwnn/Vitality.svg?style=svg)](https://circleci.com/gh/cyberpwnn/Vitality)
+
 ### [Download the latest beta build here](https://github.com/cyberpwnn/Vitality/releases)
 
 ## Commands
