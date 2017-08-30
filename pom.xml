@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.cyberpwn</groupId>
 	<artifactId>Vitality</artifactId>
-	<version>1.0</version>
+	<version>BETA-17</version>
 	<name>Vitality</name>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -53,6 +53,33 @@
 						</executions>
 						<configuration>
 							<executable>${v.script}/dev.bat</executable>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2</version>
+						<executions>
+							<execution>
+								<id>runbatchfile</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<executable>${v.script}/prod.bat</executable>
+							<arguments>
+								<argument>C:\Users\cyberpwn\Documents\development\workspace\Vitality\release\${project.name}-${project.version}.jar</argument>
+							</arguments>
 						</configuration>
 					</plugin>
 				</plugins>
