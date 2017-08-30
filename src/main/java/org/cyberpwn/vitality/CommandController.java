@@ -7,9 +7,11 @@ import org.cyberpwn.vitality.command.CommandTeleport;
 import org.cyberpwn.vitality.command.CommandTeleportForce;
 import org.cyberpwn.vitality.command.CommandTeleportHere;
 import org.cyberpwn.vitality.command.CommandTeleportHereForce;
+import org.cyberpwn.vitality.util.C;
 import org.cyberpwn.vitality.util.Controllable;
 import org.cyberpwn.vitality.util.Controller;
 import org.cyberpwn.vitality.util.GList;
+import org.cyberpwn.vitality.util.TXT;
 
 public class CommandController extends Controller implements CommandExecutor
 {
@@ -24,10 +26,11 @@ public class CommandController extends Controller implements CommandExecutor
 		super(parent);
 		
 		commands = new GList<Command>();
-		commandTeleport = new CommandTeleport(this);
-		commandTeleportForce = new CommandTeleportForce(this);
-		commandTeleportHere = new CommandTeleportHere(this);
-		commandTeleportHereForce = new CommandTeleportHereForce(this);
+		FeatureController f = Vitality.instance.getFeatureController();
+		commandTeleport = new CommandTeleport(this, f.getFeatureTeleportPlayer());
+		commandTeleportForce = new CommandTeleportForce(this, f.getFeatureTeleportPlayer());
+		commandTeleportHere = new CommandTeleportHere(this, f.getFeatureTeleportPlayer());
+		commandTeleportHereForce = new CommandTeleportHereForce(this, f.getFeatureTeleportPlayer());
 	}
 	
 	@Override
@@ -51,6 +54,21 @@ public class CommandController extends Controller implements CommandExecutor
 		return runCommand(command.getName(), args, sender);
 	}
 	
+	public boolean crossCheck(Command c, String[] arg, CommandSender s)
+	{
+		if(c.getFeatureUsage().supports(Vitality.version))
+		{
+			return c.onCommand(arg, s);
+		}
+		
+		else
+		{
+			s.sendMessage(TXT.makeTag(C.DARK_GRAY, C.RED, C.GRAY, "Vitality") + "/" + c.getCommandName() + " only supports " + c.getFeatureUsage().getProtocolRange().toString());
+			
+			return true;
+		}
+	}
+	
 	public boolean runCommand(String command, String[] arg, CommandSender s)
 	{
 		i("Running Command: " + command);
@@ -60,7 +78,7 @@ public class CommandController extends Controller implements CommandExecutor
 			if(i.getCommandName().equalsIgnoreCase(command))
 			{
 				s("Found Command (RAW) " + i.getCommandName());
-				return i.onCommand(arg, s);
+				return crossCheck(i, arg, s);
 			}
 		}
 		
@@ -69,7 +87,7 @@ public class CommandController extends Controller implements CommandExecutor
 			if(i.getCommandAliases().contains(command.toLowerCase()))
 			{
 				s("Found Command (ALIAS) " + i.getCommandName());
-				return i.onCommand(arg, s);
+				return crossCheck(i, arg, s);
 			}
 		}
 		
