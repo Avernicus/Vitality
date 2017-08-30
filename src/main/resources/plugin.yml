@@ -14,3 +14,13 @@ commands:
     aliases: [teleporthere, tphere, tph]
   vtpfhere: 
     aliases: [teleporthereforce, tpfhere, tpfh]
+  vgamemode:
+    aliases: [gamemode, gm, g]
+  vgms:
+    aliases: [gms]
+  vgmc:
+    aliases: [gmc]
+  vgma:
+    aliases: [gma]
+  vgmsp:
+    aliases: [gmsp, spectator, spec]
