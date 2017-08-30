@@ -5,14 +5,21 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.cyberpwn.vitality.util.Cuboid;
 import org.cyberpwn.vitality.util.Cuboid.CuboidDirection;
 import org.cyberpwn.vitality.util.Direction;
 import org.cyberpwn.vitality.util.GList;
+import org.cyberpwn.vitality.util.ProtocolRange;
 import org.cyberpwn.vitality.util.VectorMath;
 
 public class FeatureTeleport extends VitalFeature
 {
+	public FeatureTeleport(ProtocolRange range)
+	{
+		super(range);
+	}
+	
 	public boolean forceTeleport(Entity e, Location l)
 	{
 		return e.teleport(l);
@@ -27,7 +34,6 @@ public class FeatureTeleport extends VitalFeature
 	
 	public boolean teleportClose(Entity e, Location l)
 	{
-		System.out.println(l.getYaw());
 		Cuboid c = new Cuboid(l);
 		c = c.expand(CuboidDirection.Up, 1);
 		c = c.expand(CuboidDirection.Down, 1);
@@ -39,18 +45,12 @@ public class FeatureTeleport extends VitalFeature
 		
 		for(Block i : new GList<Block>(c.iterator()).shuffleCopy())
 		{
-			if(l.getBlock().equals(i))
-			{
-				continue;
-			}
-			
 			Location lx = i.getLocation();
 			lx.setYaw(l.getYaw());
 			lx.setPitch(l.getPitch());
 			
 			if(isSafe(lx) && isSafe(lx.clone().add(0, 1, 0)) && lx.clone().add(0, -1, 0).getBlock().getType().isSolid())
 			{
-				System.out.println(l.getYaw());
 				return teleport(e, lx);
 			}
 		}
@@ -62,7 +62,7 @@ public class FeatureTeleport extends VitalFeature
 	{
 		if(isSafe(l))
 		{
-			if(l.getBlock().getRelative(BlockFace.DOWN).getType().isSolid())
+			if(l.getBlock().getRelative(BlockFace.DOWN).getType().isSolid() || ((e instanceof Player) && ((Player) e).isFlying()))
 			{
 				Location lx = l.getBlock().getLocation().clone().add(0.5, 0.001, 0.5);
 				lx.setYaw(l.getYaw());
@@ -78,11 +78,11 @@ public class FeatureTeleport extends VitalFeature
 			{
 				if(c.getType().isSolid() || c.isLiquid())
 				{
-					Location lx = l.getBlock().getLocation().clone().add(0.5, 0.001, 0.5);
+					Location lx = c.getLocation().getBlock().getLocation().clone().add(0.5, 0.001, 0.5);
 					lx.setYaw(l.getYaw());
 					lx.setPitch(l.getPitch());
 					
-					if(teleportClose(e, c.getLocation()))
+					if(teleportClose(e, lx))
 					{
 						return true;
 					}

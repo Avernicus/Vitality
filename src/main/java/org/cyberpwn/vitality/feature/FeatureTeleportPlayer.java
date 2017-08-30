@@ -2,9 +2,15 @@ package org.cyberpwn.vitality.feature;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.cyberpwn.vitality.util.ProtocolRange;
 
 public class FeatureTeleportPlayer extends FeatureTeleport
 {
+	public FeatureTeleportPlayer(ProtocolRange range)
+	{
+		super(range);
+	}
+	
 	public boolean teleportToPlayerClose(Player p, Player to)
 	{
 		Location lx = to.getLocation().clone();
