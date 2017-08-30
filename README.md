@@ -1,5 +1,7 @@
 # Vitality
-Vitality is an alternative to essentials. Vitality is NOT a competitor of essentials. Not only has essentials been tested and developed for years, it is in almost everyone's go-to set of plugins to install first (including myself). Vitality is intended as an open path of development for features that may not be in essentials, including features that may need improvement in essentials. If you have any suggestions be sure to drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues)
+Vitality is an alternative to essentials. Vitality is NOT a competitor of essentials. Not only has essentials been tested and developed for years, it is in almost everyone's go-to set of plugins to install first (including myself). Vitality is intended as an open path of development for features that may not be in essentials, including features that may need improvement in essentials. If you have any suggestions be sure to drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues).
+
+Vitality is planned to support minecraft 1.2.5 and above. Since it is designed to work as an essential plugin, it needs to support really really old versions. The design is to have certain features work with only certain ranges of versions, and not limit feature development based on what is possible in all supported versions. By doing this, it opens up a world of possibilities for newer versions without breaking the plugin on older versions.
 
 ## Commands
 All of the commands are listed below in sections (sorted by related features)
