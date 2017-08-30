@@ -1,6 +1,7 @@
 package org.cyberpwn.vitality.command;
 
 import org.bukkit.command.CommandSender;
+import org.cyberpwn.vitality.feature.Feature;
 import org.cyberpwn.vitality.util.GList;
 
 public interface Command
@@ -10,4 +11,6 @@ public interface Command
 	public GList<String> getCommandAliases();
 	
 	public boolean onCommand(String[] arg, CommandSender sender);
+	
+	public Feature getFeatureUsage();
 }
