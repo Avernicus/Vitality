@@ -3,6 +3,8 @@ Vitality is an alternative to essentials
 
 ## Commands
 All of the commands are listed below in sections (sorted by related features)
+* [Teleportation](https://github.com/cyberpwnn/Vitality/blob/master/README.md#teleportation)
+* [Game Mode Switching](https://github.com/cyberpwnn/Vitality/blob/master/README.md#game-mode-switching)
 
 ### Teleportation
 Teleportation commands are used for getting any amount of players to a destination. The purpose for "f" in commands noted as force is because the normal teleport goal is NOT to teleport you exactly to the destination. For example, using /tp cyberpwn will teleport you NEAR cyberpwn in a SAFE location, but not inside (at the same location as) cyberpwn. Using /tpf will force the exact location, ignoring saftey checks.
