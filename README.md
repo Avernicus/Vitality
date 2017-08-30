@@ -19,14 +19,6 @@ Teleportation commands are used for getting any amount of players to a destinati
 ### Game Mode Switching
 Gamemode switching is pretty simple as it should be. However since vitality supports versions as low as 1.2.5, depending on what gamemode you want to switch to, it may reject you if your server does not have that game mode in the first place.
 
-```
-/gm <mode> [other] - Sets your gamemode to the given mode (or another player)
-/gms [other] - Sets your gamemode to survival (or another player)
-/gmc [other] - Sets your gamemode to creative (or another player)
-/gma [other] - Sets your gamemode to adventure (or another player)
-/gmsp [other] - Sets your gamemode to spectator (or another player)
-```
-
 | Command | Usage |
 |---|---|
 | /gm <mode> [other] | Sets your gamemode to the given mode (or another player) |
