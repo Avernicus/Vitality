@@ -4,6 +4,10 @@ version: 1.0
 commands: 
   vtp:
     aliases: [teleport, tp]
+  vtpall:
+    aliases: [teleportall, tpall]
+  vtpfall:
+    aliases: [teleportforceall, tpfall]
   vtpf:
     aliases: [teleportforce, tpf]
   vtphere: 

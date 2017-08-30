@@ -4,6 +4,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.cyberpwn.vitality.command.Command;
 import org.cyberpwn.vitality.command.CommandTeleport;
+import org.cyberpwn.vitality.command.CommandTeleportAll;
+import org.cyberpwn.vitality.command.CommandTeleportAllForce;
 import org.cyberpwn.vitality.command.CommandTeleportForce;
 import org.cyberpwn.vitality.command.CommandTeleportHere;
 import org.cyberpwn.vitality.command.CommandTeleportHereForce;
@@ -20,6 +22,8 @@ public class CommandController extends Controller implements CommandExecutor
 	private CommandTeleportForce commandTeleportForce;
 	private CommandTeleportHere commandTeleportHere;
 	private CommandTeleportHereForce commandTeleportHereForce;
+	private CommandTeleportAll commandTeleportAll;
+	private CommandTeleportAllForce commandTeleportAllForce;
 	
 	public CommandController(Controllable parent)
 	{
@@ -31,6 +35,8 @@ public class CommandController extends Controller implements CommandExecutor
 		commandTeleportForce = new CommandTeleportForce(this, f.getFeatureTeleportPlayer());
 		commandTeleportHere = new CommandTeleportHere(this, f.getFeatureTeleportPlayer());
 		commandTeleportHereForce = new CommandTeleportHereForce(this, f.getFeatureTeleportPlayer());
+		commandTeleportAll = new CommandTeleportAll(this, f.getFeatureTeleportPlayer());
+		commandTeleportAllForce = new CommandTeleportAllForce(this, f.getFeatureTeleportPlayer());
 	}
 	
 	@Override
@@ -122,5 +128,15 @@ public class CommandController extends Controller implements CommandExecutor
 	public CommandTeleportHereForce getCommandTeleportHereForce()
 	{
 		return commandTeleportHereForce;
+	}
+	
+	public CommandTeleportAll getCommandTeleportAll()
+	{
+		return commandTeleportAll;
+	}
+	
+	public CommandTeleportAllForce getCommandTeleportAllForce()
+	{
+		return commandTeleportAllForce;
 	}
 }
