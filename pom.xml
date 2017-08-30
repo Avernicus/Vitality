@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.cyberpwn</groupId>
 	<artifactId>Vitality</artifactId>
-	<version>BETA-17</version>
+	<version>BETA-18</version>
 	<name>Vitality</name>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

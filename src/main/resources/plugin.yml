@@ -1,9 +1,11 @@
 name: Vitality
 main: org.cyberpwn.vitality.Vitality
-version: 1.0
+version: ${project.version}
 commands: 
   vitality:
     aliases: [vit, vi]
+  vtime: 
+    aliases: [time, ti]
   vtp:
     aliases: [teleport, tp]
   vtpall:
