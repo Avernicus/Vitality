@@ -1,5 +1,3 @@
-version: 2
-jobs:
-  build: 
-    java:
-      version: oraclejdk8
+machine: 
+  java:
+    version: oraclejdk8
