@@ -2,16 +2,15 @@ package org.cyberpwn.vitality.command;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cyberpwn.vitality.CommandController;
 import org.cyberpwn.vitality.feature.Feature;
 import org.cyberpwn.vitality.util.P;
 import org.cyberpwn.vitality.util.VitalGameMode;
 
 public class CommandGameModeSpectator extends VitalCommand
 {
-	public CommandGameModeSpectator(CommandController cc, Feature f)
+	public CommandGameModeSpectator(Feature f)
 	{
-		super(cc, "vgmsp", f);
+		super("vgmsp", f, "/gmsp [other]", "Set gamemode to spectator");
 	}
 	
 	@Override

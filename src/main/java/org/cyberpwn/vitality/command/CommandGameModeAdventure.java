@@ -2,16 +2,15 @@ package org.cyberpwn.vitality.command;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cyberpwn.vitality.CommandController;
 import org.cyberpwn.vitality.feature.Feature;
 import org.cyberpwn.vitality.util.P;
 import org.cyberpwn.vitality.util.VitalGameMode;
 
 public class CommandGameModeAdventure extends VitalCommand
 {
-	public CommandGameModeAdventure(CommandController cc, Feature f)
+	public CommandGameModeAdventure(Feature f)
 	{
-		super(cc, "vgma", f);
+		super("vgma", f, "/gma [other]", "Set gamemode to adventure");
 	}
 	
 	@Override
@@ -46,13 +45,13 @@ public class CommandGameModeAdventure extends VitalCommand
 			
 			else
 			{
-				send(sender, "Cannot find player \"" + arg[0] + "\"");
+				sendInvalidPlayer(sender, arg[0]);
 			}
 		}
 		
 		else
 		{
-			send(sender, "/gma [other]");
+			sendUsage(sender);
 		}
 		
 		return true;

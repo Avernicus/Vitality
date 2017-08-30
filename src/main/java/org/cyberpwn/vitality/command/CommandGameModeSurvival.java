@@ -2,16 +2,15 @@ package org.cyberpwn.vitality.command;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cyberpwn.vitality.CommandController;
 import org.cyberpwn.vitality.feature.Feature;
 import org.cyberpwn.vitality.util.P;
 import org.cyberpwn.vitality.util.VitalGameMode;
 
 public class CommandGameModeSurvival extends VitalCommand
 {
-	public CommandGameModeSurvival(CommandController cc, Feature f)
+	public CommandGameModeSurvival(Feature f)
 	{
-		super(cc, "vgms", f);
+		super("vgms", f, "/gms [other]", "Set gamemode to survival");
 	}
 	
 	@Override

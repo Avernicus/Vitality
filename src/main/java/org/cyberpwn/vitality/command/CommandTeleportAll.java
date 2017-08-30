@@ -3,14 +3,13 @@ package org.cyberpwn.vitality.command;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cyberpwn.vitality.CommandController;
 import org.cyberpwn.vitality.feature.Feature;
 
 public class CommandTeleportAll extends VitalCommand
 {
-	public CommandTeleportAll(CommandController cc, Feature f)
+	public CommandTeleportAll(Feature f)
 	{
-		super(cc, "vtpall", f);
+		super("vtpall", f, "/tpall", "Teleport all players to you");
 	}
 	
 	@Override

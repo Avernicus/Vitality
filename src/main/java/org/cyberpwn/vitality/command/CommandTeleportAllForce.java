@@ -3,14 +3,13 @@ package org.cyberpwn.vitality.command;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cyberpwn.vitality.CommandController;
 import org.cyberpwn.vitality.feature.Feature;
 
 public class CommandTeleportAllForce extends VitalCommand
 {
-	public CommandTeleportAllForce(CommandController cc, Feature f)
+	public CommandTeleportAllForce(Feature f)
 	{
-		super(cc, "vtpfall", f);
+		super("vtpfall", f, "/tpfall", "Teleport all players to you with force.");
 	}
 	
 	@Override

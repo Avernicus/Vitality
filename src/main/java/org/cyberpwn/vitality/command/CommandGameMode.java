@@ -2,7 +2,6 @@ package org.cyberpwn.vitality.command;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.cyberpwn.vitality.CommandController;
 import org.cyberpwn.vitality.Vitality;
 import org.cyberpwn.vitality.feature.Feature;
 import org.cyberpwn.vitality.util.P;
@@ -10,9 +9,18 @@ import org.cyberpwn.vitality.util.VitalGameMode;
 
 public class CommandGameMode extends VitalCommand
 {
-	public CommandGameMode(CommandController cc, Feature f)
+	public CommandGameMode(Feature f)
 	{
-		super(cc, "vgamemode", f);
+		super("vgamemode", f, "/gamemode <type> [other]", "Set gamemodes for players.");
+	}
+	
+	public void u(CommandSender sender)
+	{
+		sendUsage(sender);
+		send(sender, "- 's' or '0' for Survival");
+		send(sender, "- 'c' or '1' for Creative");
+		send(sender, "- 'a' or '2' for Adventure");
+		send(sender, "- 'sp' or '3' for Spectator");
 	}
 	
 	@Override
@@ -20,11 +28,7 @@ public class CommandGameMode extends VitalCommand
 	{
 		if(arg.length == 0)
 		{
-			send(sender, "/gamemode <type> [other]");
-			send(sender, "- 's' or '0' for Survival");
-			send(sender, "- 'c' or '1' for Creative");
-			send(sender, "- 'a' or '2' for Adventure");
-			send(sender, "- 'sp' or '3' for Spectator");
+			u(sender);
 		}
 		
 		else if(arg.length == 1)
@@ -101,11 +105,7 @@ public class CommandGameMode extends VitalCommand
 				
 				else
 				{
-					send(sender, "/gamemode <TYPE> [other]");
-					send(sender, "- 's' or '0' for Survival");
-					send(sender, "- 'c' or '1' for Creative");
-					send(sender, "- 'a' or '2' for Adventure");
-					send(sender, "- 'sp' or '3' for Spectator");
+					u(sender);
 				}
 			}
 			
@@ -189,11 +189,7 @@ public class CommandGameMode extends VitalCommand
 				
 				else
 				{
-					send(sender, "/gamemode <TYPE> [other]");
-					send(sender, "- 's' or '0' for Survival");
-					send(sender, "- 'c' or '1' for Creative");
-					send(sender, "- 'a' or '2' for Adventure");
-					send(sender, "- 'sp' or '3' for Spectator");
+					u(sender);
 				}
 			}
 			
@@ -205,11 +201,7 @@ public class CommandGameMode extends VitalCommand
 		
 		else
 		{
-			send(sender, "/gamemode <type> [other]");
-			send(sender, "- 's' or '0' for Survival");
-			send(sender, "- 'c' or '1' for Creative");
-			send(sender, "- 'a' or '2' for Adventure");
-			send(sender, "- 'sp' or '3' for Spectator");
+			u(sender);
 		}
 		
 		return true;

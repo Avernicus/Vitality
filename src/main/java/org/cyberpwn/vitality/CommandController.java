@@ -14,6 +14,7 @@ import org.cyberpwn.vitality.command.CommandTeleportAllForce;
 import org.cyberpwn.vitality.command.CommandTeleportForce;
 import org.cyberpwn.vitality.command.CommandTeleportHere;
 import org.cyberpwn.vitality.command.CommandTeleportHereForce;
+import org.cyberpwn.vitality.command.CommandVitality;
 import org.cyberpwn.vitality.util.C;
 import org.cyberpwn.vitality.util.Controllable;
 import org.cyberpwn.vitality.util.Controller;
@@ -23,6 +24,7 @@ import org.cyberpwn.vitality.util.TXT;
 public class CommandController extends Controller implements CommandExecutor
 {
 	private GList<Command> commands;
+	private CommandVitality commandVitality;
 	private CommandTeleport commandTeleport;
 	private CommandTeleportForce commandTeleportForce;
 	private CommandTeleportHere commandTeleportHere;
@@ -40,23 +42,25 @@ public class CommandController extends Controller implements CommandExecutor
 		super(parent);
 		
 		commands = new GList<Command>();
-		FeatureController f = Vitality.instance.getFeatureController();
-		commandTeleport = new CommandTeleport(this, f.getFeatureTeleportPlayer());
-		commandTeleportForce = new CommandTeleportForce(this, f.getFeatureTeleportPlayer());
-		commandTeleportHere = new CommandTeleportHere(this, f.getFeatureTeleportPlayer());
-		commandTeleportHereForce = new CommandTeleportHereForce(this, f.getFeatureTeleportPlayer());
-		commandTeleportAll = new CommandTeleportAll(this, f.getFeatureTeleportPlayer());
-		commandTeleportAllForce = new CommandTeleportAllForce(this, f.getFeatureTeleportPlayer());
-		commandGameMode = new CommandGameMode(this, f.getFeatureGameMode());
-		commandGameModeSurvival = new CommandGameModeSurvival(this, f.getFeatureGameModeSurvival());
-		commandGameModeCreative = new CommandGameModeCreative(this, f.getFeatureGameModeCreative());
-		commandGameModeAdventure = new CommandGameModeAdventure(this, f.getFeatureGameModeAdventure());
-		commandGameModeSpectator = new CommandGameModeSpectator(this, f.getFeatureGameModeSpectator());
 	}
 	
 	@Override
 	public void onStart()
 	{
+		FeatureController f = Vitality.instance.getFeatureController();
+		commandVitality = new CommandVitality(f.getFeatureVitality());
+		commandTeleport = new CommandTeleport(f.getFeatureTeleportPlayer());
+		commandTeleportForce = new CommandTeleportForce(f.getFeatureTeleportPlayer());
+		commandTeleportHere = new CommandTeleportHere(f.getFeatureTeleportPlayer());
+		commandTeleportHereForce = new CommandTeleportHereForce(f.getFeatureTeleportPlayer());
+		commandTeleportAll = new CommandTeleportAll(f.getFeatureTeleportPlayer());
+		commandTeleportAllForce = new CommandTeleportAllForce(f.getFeatureTeleportPlayer());
+		commandGameMode = new CommandGameMode(f.getFeatureGameMode());
+		commandGameModeSurvival = new CommandGameModeSurvival(f.getFeatureGameModeSurvival());
+		commandGameModeCreative = new CommandGameModeCreative(f.getFeatureGameModeCreative());
+		commandGameModeAdventure = new CommandGameModeAdventure(f.getFeatureGameModeAdventure());
+		commandGameModeSpectator = new CommandGameModeSpectator(f.getFeatureGameModeSpectator());
+		
 		for(Command i : commands)
 		{
 			Vitality.instance.getCommand(i.getCommandName()).setExecutor(this);
@@ -178,5 +182,10 @@ public class CommandController extends Controller implements CommandExecutor
 	public CommandGameModeSpectator getCommandGameModeSpectator()
 	{
 		return commandGameModeSpectator;
+	}
+	
+	public CommandVitality getCommandVitality()
+	{
+		return commandVitality;
 	}
 }

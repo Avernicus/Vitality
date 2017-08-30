@@ -1,17 +1,22 @@
 package org.cyberpwn.vitality;
 
+import org.cyberpwn.vitality.feature.Feature;
 import org.cyberpwn.vitality.feature.FeatureGameMode;
 import org.cyberpwn.vitality.feature.FeatureGameModeAdventure;
 import org.cyberpwn.vitality.feature.FeatureGameModeCreative;
 import org.cyberpwn.vitality.feature.FeatureGameModeSpectator;
 import org.cyberpwn.vitality.feature.FeatureGameModeSurvival;
 import org.cyberpwn.vitality.feature.FeatureTeleportPlayer;
+import org.cyberpwn.vitality.feature.FeatureVitality;
 import org.cyberpwn.vitality.util.Controllable;
 import org.cyberpwn.vitality.util.Controller;
+import org.cyberpwn.vitality.util.GList;
 import org.cyberpwn.vitality.util.Protocol;
 
 public class FeatureController extends Controller
 {
+	private GList<Feature> features;
+	private FeatureVitality featureVitality;
 	private FeatureTeleportPlayer featureTeleportPlayer;
 	private FeatureGameMode featureGameMode;
 	private FeatureGameModeSurvival featureGameModeSurvival;
@@ -23,6 +28,13 @@ public class FeatureController extends Controller
 	{
 		super(parent);
 		
+		features = new GList<Feature>();
+	}
+	
+	@Override
+	public void onStart()
+	{
+		featureVitality = new FeatureVitality(Protocol.EARLIEST.to(Protocol.LATEST));
 		featureTeleportPlayer = new FeatureTeleportPlayer(Protocol.EARLIEST.to(Protocol.LATEST));
 		featureGameMode = new FeatureGameMode(Protocol.EARLIEST.to(Protocol.LATEST));
 		featureGameModeSurvival = new FeatureGameModeSurvival(Protocol.EARLIEST.to(Protocol.LATEST));
@@ -32,15 +44,19 @@ public class FeatureController extends Controller
 	}
 	
 	@Override
-	public void onStart()
+	public void onStop()
 	{
 		
 	}
 	
-	@Override
-	public void onStop()
+	public GList<Feature> getFeatures()
 	{
-		
+		return features;
+	}
+	
+	public void registerFeature(Feature f)
+	{
+		features.add(f);
 	}
 	
 	public FeatureTeleportPlayer getFeatureTeleportPlayer()
@@ -71,5 +87,10 @@ public class FeatureController extends Controller
 	public FeatureGameModeSpectator getFeatureGameModeSpectator()
 	{
 		return featureGameModeSpectator;
+	}
+	
+	public FeatureVitality getFeatureVitality()
+	{
+		return featureVitality;
 	}
 }

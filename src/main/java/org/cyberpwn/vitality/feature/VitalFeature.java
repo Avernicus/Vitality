@@ -1,5 +1,6 @@
 package org.cyberpwn.vitality.feature;
 
+import org.cyberpwn.vitality.Vitality;
 import org.cyberpwn.vitality.util.ConfigurableObject;
 import org.cyberpwn.vitality.util.Protocol;
 import org.cyberpwn.vitality.util.ProtocolRange;
@@ -14,6 +15,7 @@ public abstract class VitalFeature extends ConfigurableObject implements Feature
 		
 		this.range = range;
 		updateCodeName(getClass().getSimpleName().replaceAll("Feature", ""));
+		Vitality.instance.getFeatureController().registerFeature(this);
 	}
 	
 	@Override
