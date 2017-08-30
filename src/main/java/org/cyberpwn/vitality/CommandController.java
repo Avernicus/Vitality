@@ -3,6 +3,11 @@ package org.cyberpwn.vitality;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.cyberpwn.vitality.command.Command;
+import org.cyberpwn.vitality.command.CommandGameMode;
+import org.cyberpwn.vitality.command.CommandGameModeAdventure;
+import org.cyberpwn.vitality.command.CommandGameModeCreative;
+import org.cyberpwn.vitality.command.CommandGameModeSpectator;
+import org.cyberpwn.vitality.command.CommandGameModeSurvival;
 import org.cyberpwn.vitality.command.CommandTeleport;
 import org.cyberpwn.vitality.command.CommandTeleportAll;
 import org.cyberpwn.vitality.command.CommandTeleportAllForce;
@@ -24,6 +29,11 @@ public class CommandController extends Controller implements CommandExecutor
 	private CommandTeleportHereForce commandTeleportHereForce;
 	private CommandTeleportAll commandTeleportAll;
 	private CommandTeleportAllForce commandTeleportAllForce;
+	private CommandGameMode commandGameMode;
+	private CommandGameModeSurvival commandGameModeSurvival;
+	private CommandGameModeCreative commandGameModeCreative;
+	private CommandGameModeAdventure commandGameModeAdventure;
+	private CommandGameModeSpectator commandGameModeSpectator;
 	
 	public CommandController(Controllable parent)
 	{
@@ -37,6 +47,11 @@ public class CommandController extends Controller implements CommandExecutor
 		commandTeleportHereForce = new CommandTeleportHereForce(this, f.getFeatureTeleportPlayer());
 		commandTeleportAll = new CommandTeleportAll(this, f.getFeatureTeleportPlayer());
 		commandTeleportAllForce = new CommandTeleportAllForce(this, f.getFeatureTeleportPlayer());
+		commandGameMode = new CommandGameMode(this, f.getFeatureGameMode());
+		commandGameModeSurvival = new CommandGameModeSurvival(this, f.getFeatureGameModeSurvival());
+		commandGameModeCreative = new CommandGameModeCreative(this, f.getFeatureGameModeCreative());
+		commandGameModeAdventure = new CommandGameModeAdventure(this, f.getFeatureGameModeAdventure());
+		commandGameModeSpectator = new CommandGameModeSpectator(this, f.getFeatureGameModeSpectator());
 	}
 	
 	@Override
@@ -138,5 +153,30 @@ public class CommandController extends Controller implements CommandExecutor
 	public CommandTeleportAllForce getCommandTeleportAllForce()
 	{
 		return commandTeleportAllForce;
+	}
+	
+	public CommandGameMode getCommandGameMode()
+	{
+		return commandGameMode;
+	}
+	
+	public CommandGameModeSurvival getCommandGameModeSurvival()
+	{
+		return commandGameModeSurvival;
+	}
+	
+	public CommandGameModeCreative getCommandGameModeCreative()
+	{
+		return commandGameModeCreative;
+	}
+	
+	public CommandGameModeAdventure getCommandGameModeAdventure()
+	{
+		return commandGameModeAdventure;
+	}
+	
+	public CommandGameModeSpectator getCommandGameModeSpectator()
+	{
+		return commandGameModeSpectator;
 	}
 }
