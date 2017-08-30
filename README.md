@@ -4,7 +4,7 @@ Vitality is an alternative to essentials. Vitality is NOT a competitor of essent
 Vitality is planned to support minecraft 1.2.5 and above. Since it is designed to work as an essential plugin, it needs to support really really old versions. The design is to have certain features work with only certain ranges of versions, and not limit feature development based on what is possible in all supported versions. By doing this, it opens up a world of possibilities for newer versions without breaking the plugin on older versions.
 
 ## Commands
-All of the commands are listed below in sections (sorted by related features)
+All of the commands are listed below in sections (sorted by related features). Please note that the commands listed below are **already implemented.** If you have a suggestion for a command or feature, please drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues).
 * [Teleportation](https://github.com/cyberpwnn/Vitality/blob/master/README.md#teleportation)
 * [Game Mode Switching](https://github.com/cyberpwnn/Vitality/blob/master/README.md#game-mode-switching)
 
