@@ -3,6 +3,7 @@ package org.cyberpwn.vitality;
 import org.cyberpwn.vitality.feature.FeatureTeleportPlayer;
 import org.cyberpwn.vitality.util.Controllable;
 import org.cyberpwn.vitality.util.Controller;
+import org.cyberpwn.vitality.util.Protocol;
 
 public class FeatureController extends Controller
 {
@@ -12,7 +13,7 @@ public class FeatureController extends Controller
 	{
 		super(parent);
 		
-		featureTeleportPlayer = new FeatureTeleportPlayer();
+		featureTeleportPlayer = new FeatureTeleportPlayer(Protocol.EARLIEST.to(Protocol.LATEST));
 	}
 	
 	@Override
