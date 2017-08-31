@@ -13,6 +13,8 @@ Vitality is planned to support minecraft 1.2.5 and above. Since it is designed t
 All of the commands are listed below in sections (sorted by related features). Please note that the commands listed below are **already implemented.** If you have a suggestion for a command or feature, please drop a [suggestion here](https://github.com/cyberpwnn/Vitality/issues).
 * [Teleportation](https://github.com/cyberpwnn/Vitality/blob/master/README.md#teleportation)
 * [Game Mode Switching](https://github.com/cyberpwnn/Vitality/blob/master/README.md#game-mode-switching)
+* [Weather](https://github.com/cyberpwnn/Vitality/blob/master/README.md#weather)
+* [Time](https://github.com/cyberpwnn/Vitality/blob/master/README.md#time)
 
 ### Teleportation
 Teleportation commands are used for getting any amount of players to a destination. The purpose for "f" in commands noted as force is because **the normal teleport goal is NOT to teleport you exactly to the destination.** For example, using /tp cyberpwn will teleport you NEAR cyberpwn in a SAFE location, but not inside (at the same location as) cyberpwn. Using /tpf will force the exact location, ignoring saftey checks.
@@ -49,13 +51,14 @@ The gamemode values used for ```/gm <mode> [other]```
 
 ### Weather
 Weather commands are also basic as they should be. Additional features may be added in the future such as setting the moon phase, etc, etc.
+
 | Command | Usage |
 |---|---|
 | /weather <sun/storm> [ticks] | Set the weather type, optionally set ticks (defaults to 10 minutes) |
 | /sun [ticks] | Sets weather to sunny for 10 minutes (or ticks specified) |
 | /rain [ticks] | Sets weather to storm for 10 minutes (or ticks specified) |
 
-### Time Commands
+### Time
 Time commands are basic right now. Time aliases are needed
 
 | Command | Usage |
