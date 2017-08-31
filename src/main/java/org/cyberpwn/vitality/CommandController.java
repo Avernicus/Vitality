@@ -14,7 +14,11 @@ import org.cyberpwn.vitality.command.CommandTeleportAllForce;
 import org.cyberpwn.vitality.command.CommandTeleportForce;
 import org.cyberpwn.vitality.command.CommandTeleportHere;
 import org.cyberpwn.vitality.command.CommandTeleportHereForce;
+import org.cyberpwn.vitality.command.CommandTime;
 import org.cyberpwn.vitality.command.CommandVitality;
+import org.cyberpwn.vitality.command.CommandWeather;
+import org.cyberpwn.vitality.command.CommandWeatherStorm;
+import org.cyberpwn.vitality.command.CommandWeatherSun;
 import org.cyberpwn.vitality.util.C;
 import org.cyberpwn.vitality.util.Controllable;
 import org.cyberpwn.vitality.util.Controller;
@@ -36,6 +40,10 @@ public class CommandController extends Controller implements CommandExecutor
 	private CommandGameModeCreative commandGameModeCreative;
 	private CommandGameModeAdventure commandGameModeAdventure;
 	private CommandGameModeSpectator commandGameModeSpectator;
+	private CommandTime commandTime;
+	private CommandWeather commandWeather;
+	private CommandWeatherSun commandWeatherSun;
+	private CommandWeatherStorm commandWeatherStorm;
 	
 	public CommandController(Controllable parent)
 	{
@@ -60,6 +68,10 @@ public class CommandController extends Controller implements CommandExecutor
 		commandGameModeCreative = new CommandGameModeCreative(f.getFeatureGameModeCreative());
 		commandGameModeAdventure = new CommandGameModeAdventure(f.getFeatureGameModeAdventure());
 		commandGameModeSpectator = new CommandGameModeSpectator(f.getFeatureGameModeSpectator());
+		commandTime = new CommandTime(f.getFeatureTime());
+		commandWeather = new CommandWeather(f.getFeatureWeather());
+		commandWeatherSun = new CommandWeatherSun(f.getFeatureWeather());
+		commandWeatherStorm = new CommandWeatherStorm(f.getFeatureWeather());
 		
 		for(Command i : commands)
 		{
@@ -187,5 +199,25 @@ public class CommandController extends Controller implements CommandExecutor
 	public CommandVitality getCommandVitality()
 	{
 		return commandVitality;
+	}
+	
+	public CommandTime getCommandTime()
+	{
+		return commandTime;
+	}
+	
+	public CommandWeather getCommandWeather()
+	{
+		return commandWeather;
+	}
+	
+	public CommandWeatherSun getCommandWeatherSun()
+	{
+		return commandWeatherSun;
+	}
+	
+	public CommandWeatherStorm getCommandWeatherStorm()
+	{
+		return commandWeatherStorm;
 	}
 }

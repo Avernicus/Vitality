@@ -7,7 +7,9 @@ import org.cyberpwn.vitality.feature.FeatureGameModeCreative;
 import org.cyberpwn.vitality.feature.FeatureGameModeSpectator;
 import org.cyberpwn.vitality.feature.FeatureGameModeSurvival;
 import org.cyberpwn.vitality.feature.FeatureTeleportPlayer;
+import org.cyberpwn.vitality.feature.FeatureTime;
 import org.cyberpwn.vitality.feature.FeatureVitality;
+import org.cyberpwn.vitality.feature.FeatureWeather;
 import org.cyberpwn.vitality.util.Controllable;
 import org.cyberpwn.vitality.util.Controller;
 import org.cyberpwn.vitality.util.GList;
@@ -23,6 +25,8 @@ public class FeatureController extends Controller
 	private FeatureGameModeCreative featureGameModeCreative;
 	private FeatureGameModeAdventure featureGameModeAdventure;
 	private FeatureGameModeSpectator featureGameModeSpectator;
+	private FeatureTime featureTime;
+	private FeatureWeather featureWeather;
 	
 	public FeatureController(Controllable parent)
 	{
@@ -41,6 +45,8 @@ public class FeatureController extends Controller
 		featureGameModeCreative = new FeatureGameModeCreative(Protocol.EARLIEST.to(Protocol.LATEST));
 		featureGameModeAdventure = new FeatureGameModeAdventure(Protocol.B1_3_1.to(Protocol.LATEST));
 		featureGameModeSpectator = new FeatureGameModeSpectator(Protocol.R1_8.to(Protocol.LATEST));
+		featureTime = new FeatureTime(Protocol.EARLIEST.to(Protocol.LATEST));
+		featureWeather = new FeatureWeather(Protocol.EARLIEST.to(Protocol.LATEST));
 	}
 	
 	@Override
@@ -92,5 +98,15 @@ public class FeatureController extends Controller
 	public FeatureVitality getFeatureVitality()
 	{
 		return featureVitality;
+	}
+	
+	public FeatureTime getFeatureTime()
+	{
+		return featureTime;
+	}
+	
+	public FeatureWeather getFeatureWeather()
+	{
+		return featureWeather;
 	}
 }
