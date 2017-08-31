@@ -46,3 +46,18 @@ The gamemode values used for ```/gm <mode> [other]```
 | Creative | "c" or "1" |
 | Adventure | "a" or "2" |
 | Spectator | "sp" or "3" |
+
+### Weather
+Weather commands are also basic as they should be. Additional features may be added in the future such as setting the moon phase, etc, etc.
+| Command | Usage |
+|---|---|
+| /weather <sun/storm> [ticks] | Set the weather type, optionally set ticks (defaults to 10 minutes) |
+| /sun [ticks] | Sets weather to sunny for 10 minutes (or ticks specified) |
+| /rain [ticks] | Sets weather to storm for 10 minutes (or ticks specified) |
+
+### Time Commands
+Time commands are basic right now. Time aliases are needed
+
+| Command | Usage |
+|---|---|
+| /time [ticks/day/noon/dusk/dawn/midnight] | Set or get the time in the world |
