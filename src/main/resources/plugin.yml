@@ -6,6 +6,12 @@ commands:
     aliases: [vit, vi]
   vtime: 
     aliases: [time, ti]
+  vweather: 
+    aliases: [weather, wet]
+  vsun: 
+    aliases: [sun, dry]
+  vstorm: 
+    aliases: [rain, storm]
   vtp:
     aliases: [teleport, tp]
   vtpall:

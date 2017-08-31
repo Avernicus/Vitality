@@ -13,9 +13,10 @@ public class ParallelThread extends Thread
 		queue = new ConcurrentLinkedQueue<Execution>();
 		info = new ThreadInformation(id);
 		setPriority(MAX_PRIORITY);
-		setName("CT Parallel Tick Thread " + id);
+		setName("VT Parallel Tick Thread " + id);
 	}
 	
+	@Override
 	public void run()
 	{
 		while(!interrupted())

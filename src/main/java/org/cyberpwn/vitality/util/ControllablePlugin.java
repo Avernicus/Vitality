@@ -9,15 +9,10 @@ public abstract class ControllablePlugin extends JavaPlugin implements Controlla
 	private D d;
 	
 	@Override
-	public void onLoad()
+	public void onEnable()
 	{
 		destroyOldThreads();
 		readCurrentTick();
-	}
-	
-	@Override
-	public void onEnable()
-	{
 		d = new D(getName());
 		Wraith.instance = this;
 		setupTicker();
@@ -53,7 +48,7 @@ public abstract class ControllablePlugin extends JavaPlugin implements Controlla
 		
 		for(Thread i : new GList<Thread>(Thread.getAllStackTraces().keySet()))
 		{
-			if(i.getName().startsWith("CT Parallel Tick Thread "))
+			if(i.getName().startsWith("VT Parallel Tick Thread "))
 			{
 				k = true;
 				

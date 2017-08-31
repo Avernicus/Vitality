@@ -47,6 +47,17 @@ public class CommandVitality extends VitalCommand
 			send(sender, commands.size() + " of " + scommands.size() + " Commands support " + Vitality.version.getVersionString());
 		}
 		
+		if(arg.length == 1)
+		{
+			if(arg[0].equalsIgnoreCase("reload"))
+			{
+				Vitality.instance.getServer().getPluginManager().disablePlugin(Vitality.instance);
+				Vitality.instance.onLoad();
+				Vitality.instance.getServer().getPluginManager().enablePlugin(Vitality.instance);
+				send(sender, "Vitality Reloaded");
+			}
+		}
+		
 		return true;
 	}
 }
